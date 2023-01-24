@@ -1,23 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import Login from './Components/Login';
+import CreateSet from './Components/CreateSet';
+import Home from './Components/Home';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 function App() {
+
+  //Routes (Home page, 404 page, login, createsets/cards)
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home/>,
+    },
+    {
+      path:"/*",
+      element: <h1>404 not found</h1>
+    },
+    {
+      path:"/login",
+      element: <Login />
+    },
+    {
+      path: "/createset",
+      element: <CreateSet/>
+    }
+  ]);
+
+  //return whatever the route is on
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RouterProvider router={router} />
     </div>
   );
 }
