@@ -21,7 +21,7 @@ function TypeIt({question}){
         <>
         <div>
             <div>
-                <p>{question}</p><p>{question}</p>
+                <p>{question}</p>
             </div>
             <div>
             <textarea class="input_area"
