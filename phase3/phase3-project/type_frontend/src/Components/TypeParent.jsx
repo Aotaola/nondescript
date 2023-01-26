@@ -1,8 +1,29 @@
 import TypeIt from "./TypeIt"
 import { useState } from "react"
+import { useEffect } from "react";
 
 function TypeParent({ selectedSet }){
-    
+
+    useEffect(() => {
+        fetch(`http://localhost:9292/games/423423/${selectedSet.id}`)
+          .then((r) => r.json())
+          .then((cards) => {
+
+
+                const newArray = cards.map(card =>{
+            
+                    return {question: card.question, 
+                            description: card.description, 
+                            hint:card.hint, 
+                            answer: card.answer}
+                })
+
+                setQuestionArray(newArray)
+          });
+      }, []);
+
+      
+
     //Array of questions
     const[questionArray, setQuestionArray] = useState(["Seb","Tuck","Ale","Soph","Olive"])
 
@@ -10,7 +31,7 @@ function TypeParent({ selectedSet }){
     const[questionCount, setQuestionCount] = useState(0)
     
     return(
-        <TypeIt setQuestionArray={setQuestionArray} setQuestionCount={setQuestionCount} questionCount={questionCount} question={questionArray[questionCount]} questionArray={questionArray}/>
+        <TypeIt key="1" setQuestionArray={setQuestionArray} setQuestionCount={setQuestionCount} questionCount={questionCount} question={questionArray[questionCount]} questionArray={questionArray}/>
     )
 }
 

@@ -12,12 +12,12 @@ import {useState, useEffect} from 'react'
 function App() {
 
   const [cardSet, setCardSet] = useState([])
-  const [selectedSet, setSelectedSet] = useState()
+  const [selectedSet, setSelectedSet] = useState({})
 
   useEffect(() => {
-    fetch("http://localhost:9292/cardsets")
+    fetch("http://localhost:9292/")
       .then((r) => r.json())
-      .then((cards) => setCards(cards));
+      .then((cards) => setCardSet(cards));
   }, []);
 
   //Routes (Home page, 404 page, login, createsets/cards)

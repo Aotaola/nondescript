@@ -3,6 +3,8 @@ import { useRef } from "react";
 
 function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, questionCount}){
 
+    console.log(question.question)
+
     //useStates
 
     const[mistakeCount, setMistakeCount] = useState([])
@@ -15,13 +17,9 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
 
     const[isWrong, setIsWrong] = useState(false)
 
-    const[isRightChar, setIsRightChar] = useState(false)
-
     const maxAttempts = 3
 
     let key = ""
-
-    const ref = useRef(null);
 
     //functions
 
@@ -37,14 +35,14 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
 
                 somethingIsWrong(userInput)
     
-                if (userInput === question){
+                if (userInput === question.question){
                 correctAnswer(userInput)
                 }
                 else{
                     incorrectAnswer(maxAttempts)
                 }
             
-                if(questionCount+1 === questionArray.length && userInput === question){
+                if(questionCount+1 === questionArray.length && userInput === question.question){
                     replaceQuestionArray()
                 }
             }
@@ -68,8 +66,7 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
 
     function checkLetter(userAnswer){
         const indexNum = userAnswer.length-1
-        if(userAnswer[indexNum] === question[indexNum]){
-            makeCharGreen(indexNum)
+        if(userAnswer[indexNum] === question.question[indexNum]){
             return true
         }
         else{
@@ -86,7 +83,7 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
     }
 
     function somethingIsWrong(userAnswer){
-        if(question.includes(userAnswer)){
+        if(question.question.includes(userAnswer)){
             setIsWrong(false)
         }
         else{
@@ -117,21 +114,12 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
         }
     }
 
-    function makeCharGreen(index){
-       
-    }
-
     return(
         <div>
              <div>
-                <p>
-                    {question.split('').map((character, index) =>{
-                        return( 
-                            <span id={index}>{character}</span>
-                        )
-                    })}
-                </p>
-                 <p>{score}</p>
+                <p>{question.question}</p>
+                <p>{question.description}</p>
+                <p>{score}</p>
                  {isWrong ?(
                     <p>Something Is Wrong!</p>
                  ):(

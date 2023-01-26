@@ -7,14 +7,23 @@ function Sets({set, setSelectedSet}){
     function handleClick(){
         setSelectedSet(set)
         navigate("/game")
+        
+        // fetch("http://localhost:9292/",{
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({id: set.id })
+        //     })
     }
     
     
     return(
         <div onClick={handleClick}>
             <h1>{set.title}</h1>
-            // card lengths
-            <p>{set.length - 10}</p>
+            <p>test</p>
+            {/* <p>{set.length - 10}</p> */}
             <img/>
         </div>
     )
