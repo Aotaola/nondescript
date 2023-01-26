@@ -6,9 +6,15 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import {useState, useEffect} from 'react'
 
 function App() {
-
+  const [cards, setCards] = useState()
+  useEffect(() => {
+    fetch("http://localhost:9292/cardsets")
+      .then((r) => r.json())
+      .then((cards) => setCards(cards));
+  }, []);
   //Routes (Home page, 404 page, login, createsets/cards)
   const router = createBrowserRouter([
     {
