@@ -7,7 +7,8 @@ function Difficulty(){
 const [difficulty, setDifficulty] = useState('easy')
 
 useEffect (()=>{
-    fetch(`http://localhost:9292/id:${id}`, {
+    // ${id}
+    fetch(`http://localhost:9292/id:1`, {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({difficulty: `${difficulty}`})
