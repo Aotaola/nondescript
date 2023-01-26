@@ -3,6 +3,7 @@ import Header from "./Header"
 import TypeParent from "./TypeParent"
 
 function Home(){
+    
     return(
         <div>
             <Header/>
