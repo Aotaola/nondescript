@@ -1,17 +1,16 @@
 import TypeIt from "./TypeIt"
 import { useState } from "react"
-import { useEffect } from "react"
 
-function TypeParent(){
+function TypeParent({ selectedSet }){
     
-    const[question, setQuestion] = useState("")
+    //Array of questions
+    const[questionArray, setQuestionArray] = useState(["Seb","Tuck","Ale","Soph","Olive"])
 
-    useEffect(()=>{
-        setQuestion("console.log()")
-    },[])
+    //index of the question array
+    const[questionCount, setQuestionCount] = useState(0)
     
     return(
-        <TypeIt question={question}/>
+        <TypeIt setQuestionArray={setQuestionArray} setQuestionCount={setQuestionCount} questionCount={questionCount} question={questionArray[questionCount]} questionArray={questionArray}/>
     )
 }
 

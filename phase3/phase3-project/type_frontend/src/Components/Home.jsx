@@ -1,14 +1,12 @@
-import Difficulty from "./Difficulty"
-import Header from "./Header"
-import TypeParent from "./TypeParent"
+import Sets from "./Sets"
 
-function Home(){
+function Home({ setSelectedSet, cardSet }){
     
     return(
         <div>
-            <Header/>
-            <Difficulty />
-            <TypeParent />
+            {cardSet.map(set=>{
+                <Sets set={set} setSelectedSet={setSelectedSet}/>
+            })}
         </div>
     )
 }
