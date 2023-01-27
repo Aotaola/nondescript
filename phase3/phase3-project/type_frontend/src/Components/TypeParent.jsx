@@ -5,7 +5,7 @@ import { useEffect } from "react";
 function TypeParent({ id }){
 
     useEffect(() => {
-        fetch(`http://localhost:9292/games/423423/${id}`)
+        fetch(`http://localhost:9292/cardsets/${id}`)
           .then((r) => r.json())
           .then((cards) => {
 

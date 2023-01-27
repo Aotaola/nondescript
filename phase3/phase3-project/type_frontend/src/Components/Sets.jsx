@@ -8,19 +8,19 @@ function Sets({set, setSelectedSet}){
         setSelectedSet(set)
         navigate(`/game/${set.id}`)
         
-        fetch("http://localhost:9292/game", {
+        fetch(`http://localhost:9292/games/4234234/${set.id}`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({id: set.id,user_id: set.user_id})})
+        body: JSON.stringify({id: set.id})})
     
     .then(response => {
         if (!response.ok) {
             throw new Error(response.statusText);
         }
-        return response.json();
+        return console.log(response.json())
     })
     .then(data => {
         // do something with the returned data
