@@ -3,6 +3,7 @@ import Login from './Components/Login';
 import CreateSet from './Components/CreateSet';
 import Game from './Components/Game';
 import Home from './Components/Home';
+import AddCards from './Components/AddCards';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -12,7 +13,7 @@ import {useState, useEffect} from 'react'
 function App() {
 
   const [cardSet, setCardSet] = useState([])
-  const [selectedSet, setSelectedSet] = useState({})
+  const [selectedSet, setSelectedSet] = useState()
 
   useEffect(() => {
     fetch("http://localhost:9292/")
@@ -23,8 +24,8 @@ function App() {
   //Routes (Home page, 404 page, login, createsets/cards)
   const router = createBrowserRouter([
     {
-      path: "/game",
-      element: <Game selectedSet={selectedSet}/>,
+      path: "/game/:id",
+      element: <Game/>,
     },
     {
       path:"/*",
@@ -36,11 +37,15 @@ function App() {
     },
     {
       path: "/createset",
-      element: <CreateSet/>
+      element: <CreateSet setSelectedSet={setSelectedSet} setCardSet={setCardSet} cardSet={cardSet}/>
     },
     {
       path: "/",
       element: <Home setSelectedSet={setSelectedSet} cardSet={cardSet}/>
+    },
+    {
+      path: "/addcards",
+      element: <AddCards selectedSet={selectedSet} />
     }
   ]);
 

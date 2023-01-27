@@ -6,16 +6,26 @@ function Sets({set, setSelectedSet}){
     
     function handleClick(){
         setSelectedSet(set)
-        navigate("/game")
+        navigate(`/game/${set.id}`)
         
-        // fetch("http://localhost:9292/",{
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({id: set.id })
-        //     })
+        fetch("http://localhost:9292/game", {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id: set.id,user_id: set.user_id})})
+    
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // do something with the returned data
+        console.log(data);
+    })
     }
     
     
