@@ -1,26 +1,25 @@
 import {useState, useEffect} from 'react'
 
-
-
 function Difficulty({id}){
 
 const [difficulty, setDifficulty] = useState('easy')
+console.log(difficulty, id)
 // useEffect (()=>{
 //     fetch(`http://localhost:9292/id:${id}`, {
 //         method: 'POST',
 //         headers: {'Content-Type': 'application/json'},
 //         body: JSON.stringify({difficulty: `${difficulty}`})
 //     })
+// },[])
+
+// useEffect (()=>{
+//     fetch(`http://localhost:9292/games/${id}`, {
+//         method: 'PATCH',
+//         headers: {'Content-Type': 'application/json'},
+//         body: JSON.stringify({difficulty: `${difficulty}`})
+//     })
     
 // },[])
-useEffect (()=>{
-    fetch(`http://localhost:9292/games/${id}`, {
-        method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({difficulty: `${difficulty}`})
-    })
-    
-},[])
 
 
 return (

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 function TypeParent({ selectedSet }){
 
     useEffect(() => {
-        fetch(`http://localhost:9292/games/423423/${selectedSet.id}`)
+        fetch(`http://localhost:9292/games/423423/${selectedSet}`)
           .then((r) => r.json())
           .then((cards) => {
 
