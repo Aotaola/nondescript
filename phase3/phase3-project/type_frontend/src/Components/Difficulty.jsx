@@ -14,7 +14,6 @@ useEffect (()=>{
             difficulty: `${difficulty}`
         })
     })
-    
 },[])
 
 

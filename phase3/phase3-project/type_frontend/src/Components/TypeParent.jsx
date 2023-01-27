@@ -7,6 +7,7 @@ function TypeParent({ id }){
 
     const navigate = useNavigate()
 
+
     useEffect(() => {
         fetch(`http://localhost:9292/games/423423/${id}`)
           .then((r) => r.json())
