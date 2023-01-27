@@ -2,10 +2,10 @@ import TypeIt from "./TypeIt"
 import { useState } from "react"
 import { useEffect } from "react";
 
-function TypeParent({ selectedSet }){
+function TypeParent({ id }){
 
     useEffect(() => {
-        fetch(`http://localhost:9292/games/423423/${selectedSet}`)
+        fetch(`http://localhost:9292/games/423423/${id}`)
           .then((r) => r.json())
           .then((cards) => {
 

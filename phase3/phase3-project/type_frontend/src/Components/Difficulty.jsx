@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 function Difficulty({id}){
 
 const [difficulty, setDifficulty] = useState('easy')
-console.log(difficulty, id)
+
 // useEffect (()=>{
 //     fetch(`http://localhost:9292/id:${id}`, {
 //         method: 'POST',
