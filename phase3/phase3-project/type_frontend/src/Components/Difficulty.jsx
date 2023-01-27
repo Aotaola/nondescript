@@ -4,14 +4,6 @@ function Difficulty({id}){
 
 const [difficulty, setDifficulty] = useState(0)
 
-// useEffect (()=>{
-//     fetch(`http://localhost:9292/id:${id}`, {
-//         method: 'POST',
-//         headers: {'Content-Type': 'application/json'},
-//         body: JSON.stringify({difficulty: `${difficulty}`})
-//     })
-// },[])
-
 useEffect (()=>{
     fetch(`http://localhost:9292/games/:${id}`, {
         method: 'PATCH',
@@ -35,10 +27,6 @@ return (
             <h1>Difficult</h1>
             </div>
             <div onClick = {(e) => setDifficulty(3)}>
-            <h1>Insanity</h1>
-            </div>
-        </div>
-    )
 }
 
 export default Difficulty

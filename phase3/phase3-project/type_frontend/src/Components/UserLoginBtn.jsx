@@ -11,7 +11,7 @@ function UserLoginBtn(){
     }
 
     return (
-        <button onClick={handleClick}>Log In</button>
+        <button class="button" onClick={handleClick}>Log In</button>
     )
 }
 

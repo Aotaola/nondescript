@@ -1,5 +1,6 @@
 import CreateSetSets from "./createsetsets"
 import { useState } from "react"
+import Header from "./Header"
 
 function CreateSet({cardSet, setCardSet, setSelectedSet}){
     
@@ -27,6 +28,7 @@ function CreateSet({cardSet, setCardSet, setSelectedSet}){
 
     return (
         <div>
+            <Header />
             <button onClick={()=>setIsClicked(!isClicked)}> Make A Set </button>
                 {isClicked ? (
                     <div>

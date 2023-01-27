@@ -4,6 +4,7 @@ import CreateSet from './Components/CreateSet';
 import Game from './Components/Game';
 import Home from './Components/Home';
 import AddCards from './Components/AddCards';
+import Score from './Components/Score';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -46,6 +47,10 @@ function App() {
     {
       path: "/addcards",
       element: <AddCards selectedSet={selectedSet} />
+    },
+    {
+      path: "/score/:score",
+      element: <Score />
     }
   ]);
 
