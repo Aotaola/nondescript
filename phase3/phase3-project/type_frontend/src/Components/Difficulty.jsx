@@ -15,18 +15,19 @@ useEffect (()=>{
     
 },[])
 
-return (
+    return (
         <div id="difficulty">
-            <div onClick = {(e) => setDifficulty(0)}>
-            <h1>Easy</h1>
+            <div class="difficulty" onClick = {(e) => setDifficulty(0)}>
+                <h1>Easy</h1>
             </div>
-            <div onClick = {(e) => setDifficulty(1) }>
-            <h1>Medium</h1>
+            <div class="difficulty" onClick = {(e) => setDifficulty(1) }>
+                <h1>Medium</h1>
             </div>
-            <div onClick = {(e) => setDifficulty(2)}>
-            <h1>Difficult</h1>
+            <div class="difficulty" onClick = {(e) => setDifficulty(2)}>
+                <h1>Difficult</h1>
             </div>
-            <div onClick = {(e) => setDifficulty(3)}>
+        </div>
+    )
 }
 
 export default Difficulty
