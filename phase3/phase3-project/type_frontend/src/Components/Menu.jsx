@@ -1,6 +1,15 @@
+import { useNavigate } from "react-router-dom"
+
 function Menu (){
+    
+    const navigate = useNavigate()
+
+    function handleClick(){
+        navigate("/")
+    }
+    
     return(
-        <button>Drop Down</button>
+        <button onClick={handleClick} class="button" >Home</button>
     )
 }
 

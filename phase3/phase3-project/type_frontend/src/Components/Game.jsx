@@ -4,7 +4,7 @@ import TypeParent from "./TypeParent"
 import { useParams } from "react-router-dom"
 import {useEffect} from 'react'
 
-function Game({ selectedSet }){
+function Game(){
     
     let {id} = useParams()
 
@@ -50,7 +50,7 @@ function Game({ selectedSet }){
         <div>
             <Header/>
             <Difficulty id={id}/>
-            <TypeParent selectedSet={id} />
+            <TypeParent id={id} />
         </div>
     )
 }

@@ -31,10 +31,10 @@ function CreateSetSets({ set, setCardSet, cardSet, setSelectedSet }){
     }
 
     return(
-        <div>
+        <div id="eachSet">
             <h1>{set.title}</h1>
-            <button onClick={handleClick} > Add Cards </button>
-            <button onClick={handleDelete}> Delete Set </button>
+            <button class="setButtons" onClick={handleClick} > Add Cards </button>
+            <button class="setButtons" onClick={handleDelete}> Delete Set </button>
         </div>
     )
     

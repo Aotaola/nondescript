@@ -16,7 +16,7 @@ function Create() {
     }
     
     return (
-        <button onClick={handleClick}>Create Set</button>
+        <button class="button" onClick={handleClick}>Create Set</button>
     )
 }
 

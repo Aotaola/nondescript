@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Header from "./Header"
 
 function Login(){
     
@@ -16,6 +17,7 @@ function Login(){
     
     return(
         <div>
+          <Header />
             <form onSubmit={handleSubmit}>
       <label>
         Email:
