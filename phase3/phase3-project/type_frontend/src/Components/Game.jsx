@@ -2,9 +2,8 @@ import Difficulty from "./Difficulty"
 import Header from "./Header"
 import TypeParent from "./TypeParent"
 import { useParams } from "react-router-dom"
-import {useEffect} from 'react'
 
-function Game(){
+function Game({isLoggedIn}){
     
     
     let {id} = useParams()
@@ -32,7 +31,7 @@ function Game(){
     
     return(
         <div>
-            <Header/>
+            <Header isLoggedIn={isLoggedIn}/>
             <Difficulty id={id}/>
             <TypeParent id={id} />
         </div>

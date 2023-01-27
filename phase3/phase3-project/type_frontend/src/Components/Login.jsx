@@ -1,18 +1,19 @@
 import { useState } from "react"
 import Header from "./Header"
+import { useNavigate } from "react-router-dom"
 
-function Login(){
+function Login({setIsLoggedIn}){
     
     const[postEmail, setPostEmail] = useState("")
     const[postPassword, setPostPassword] = useState("")
 
-    const user = {
-        email: postEmail,
-        password: postPassword
-    }
+    const navigate = useNavigate()
 
     function handleSubmit(){
-        
+        alert("You logged in!")
+        setIsLoggedIn(true)
+        navigate("/")
+        console.log(postEmail, postPassword)
     }
     
     return(

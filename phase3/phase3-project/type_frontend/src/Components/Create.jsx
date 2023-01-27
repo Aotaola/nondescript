@@ -1,9 +1,7 @@
 import { useNavigate } from "react-router-dom"
 
-function Create() {
+function Create({isLoggedIn}) {
     
-    const isLoggedIn = true
-
     const navigate = useNavigate()
 
     function handleClick(){

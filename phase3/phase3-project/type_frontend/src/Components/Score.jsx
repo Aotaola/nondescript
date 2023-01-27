@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom"
 import Header from "./Header"
 
-function Score (){
+function Score ({isLoggedIn}){
 
     let {score} = useParams()
 
     return (
         <div>
-            <Header />
+            <Header isLoggedIn={isLoggedIn}/>
             <p>Your Final Score is: {score}</p>
         </div>
     )

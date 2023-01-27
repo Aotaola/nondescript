@@ -1,18 +1,23 @@
 import Create from "./Create"
 import Menu from "./Menu"
 import UserLoginBtn from "./UserLoginBtn"
+import { useNavigate } from "react-router-dom"
 
-function Header(){
-    
-    const isLoggedIn = false
+function Header({isLoggedIn}){
+
+    const navigate = useNavigate()
+
+    function handleClick(){
+        navigate("/login")
+    }
 
     return(
         <div class="header">
-            <Create />
+            <Create isLoggedIn={isLoggedIn} />
             <Menu />
 
             {isLoggedIn ? (
-                <h1>User</h1>
+                <button class="button" onClick={handleClick}>Sign Out</button>
             ):(
                 <UserLoginBtn />
             )}

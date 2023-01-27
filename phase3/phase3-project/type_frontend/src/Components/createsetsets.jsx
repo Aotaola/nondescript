@@ -8,7 +8,7 @@ function CreateSetSets({ set, setCardSet, cardSet, setSelectedSet }){
        
         if(window.confirm("Are you sure you want to delete")){
         
-            fetch(`http://localhost:9292/${set.id}`, {
+            fetch(`http://localhost:9292/cardset/${set.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ function CreateSetSets({ set, setCardSet, cardSet, setSelectedSet }){
     }
     
     function handleClick(){
-        navigate("/addCards")
+        navigate(`/addCards/${set.id}`)
         setSelectedSet(set)
     }
 
