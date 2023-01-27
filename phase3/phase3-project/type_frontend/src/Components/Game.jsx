@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom"
 
 function Game({isLoggedIn}){
     
-    
     let {id} = useParams()
+
     fetch("http://localhost:9292/games", {
         method: "POST",
         headers: {
@@ -14,6 +14,7 @@ function Game({isLoggedIn}){
         },
         body: JSON.stringify({cardset_id: id})
     })
+
     .then(response => {
         if (!response.ok) {
             throw new Error(response.statusText);
@@ -27,7 +28,6 @@ function Game({isLoggedIn}){
     .catch(error => {
         console.log(error);
     });
-}
     
     return(
         <div>
