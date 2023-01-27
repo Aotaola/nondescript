@@ -48,6 +48,7 @@
   border-radius: 10px;
   padding: 10px;
   padding-bottom: 8px;
+  
 }
 
 .difficulty:hover{
@@ -58,6 +59,7 @@
   display: flex;
   flex-direction: row;
   justify-content:space-around;
+  
 }
 
 #question {
@@ -93,4 +95,29 @@
   padding: 10px;
   cursor: pointer;
   height: auto;
+}
+
+.card {
+  width: 20%;
+  height: 100px; 
+  background-color: rgb(50, 96, 142);
+  border-radius: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-bottom: 8px;
+  color: white;
+  
+}
+
+#containerOfCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+
+.delete-button{
+  border-radius: 10px;
+  border-radius: 10px;
 }

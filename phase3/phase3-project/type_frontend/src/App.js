@@ -15,6 +15,7 @@ function App() {
 
   const [cardSet, setCardSet] = useState([])
   const [selectedSet, setSelectedSet] = useState()
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     fetch("http://localhost:9292/")
@@ -26,7 +27,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/game/:id",
-      element: <Game/>,
+      element: <Game isLoggedIn={isLoggedIn}/>,
     },
     {
       path:"/*",
@@ -34,23 +35,23 @@ function App() {
     },
     {
       path:"/login",
-      element: <Login />
+      element: <Login setIsLoggedIn={setIsLoggedIn}/>
     },
     {
       path: "/createset",
-      element: <CreateSet setSelectedSet={setSelectedSet} setCardSet={setCardSet} cardSet={cardSet}/>
+      element: <CreateSet isLoggedIn={isLoggedIn} setSelectedSet={setSelectedSet} setCardSet={setCardSet} cardSet={cardSet}/>
     },
     {
       path: "/",
-      element: <Home setSelectedSet={setSelectedSet} cardSet={cardSet}/>
+      element: <Home isLoggedIn={isLoggedIn} setSelectedSet={setSelectedSet} cardSet={cardSet}/>
     },
     {
-      path: "/addcards",
-      element: <AddCards selectedSet={selectedSet} />
+      path: "/addcards/:id",
+      element: <AddCards isLoggedIn={isLoggedIn} selectedSet={selectedSet} />
     },
     {
       path: "/score/:score",
-      element: <Score />
+      element: <Score isLoggedIn={isLoggedIn} />
     }
   ]);
 
