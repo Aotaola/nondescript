@@ -1,6 +1,7 @@
 import { useState } from "react"
+import Header from "./Header"
 
-function AddCards({set}){
+function AddCards(){
     
     const [userInput, setUserInput] = useState("")
 
@@ -10,6 +11,7 @@ function AddCards({set}){
     
     return(
         <div>
+            <Header />
             <form >
                 <label>
                     Name of set:

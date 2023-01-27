@@ -1,8 +1,12 @@
 import TypeIt from "./TypeIt"
 import { useState } from "react"
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function TypeParent({ id }){
+
+    const navigate = useNavigate()
+
 
     useEffect(() => {
         fetch(`http://localhost:9292/games/423423/${id}`)
@@ -22,6 +26,18 @@ function TypeParent({ id }){
           });
       }, []);
 
+      useEffect(()=>{
+        fetch(`http://localhost:9292/games/4234234/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify({
+                   id: id 
+                })
+        })
+      },[])
+
       
 
     //Array of questions
@@ -29,9 +45,16 @@ function TypeParent({ id }){
 
     //index of the question array
     const[questionCount, setQuestionCount] = useState(0)
+
+    const[score, setScore] = useState(0)
+
+    if(questionCount+1 === questionArray.length){
+                    // replaceQuestionArray()
+                    navigate(`/score/${score}`)
+                }
     
     return(
-        <TypeIt key="1" setQuestionArray={setQuestionArray} setQuestionCount={setQuestionCount} questionCount={questionCount} question={questionArray[questionCount]} questionArray={questionArray}/>
+        <TypeIt score={score} setScore={setScore} key="1" setQuestionArray={setQuestionArray} setQuestionCount={setQuestionCount} questionCount={questionCount} question={questionArray[questionCount]} questionArray={questionArray}/>
     )
 }
 
