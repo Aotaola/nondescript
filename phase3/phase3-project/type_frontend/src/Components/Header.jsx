@@ -7,7 +7,7 @@ function Header(){
     const isLoggedIn = false
 
     return(
-        <div id="header">
+        <div class="header">
             <Create />
             <Menu />
 

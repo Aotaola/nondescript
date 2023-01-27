@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
-function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, questionCount}){
+function TypeIt({ score, setScore, question, questionArray, setQuestionArray, setQuestionCount, questionCount}){
 
-    console.log(question.question)
+    const navigate = useNavigate()
 
     //useStates
 
@@ -12,8 +12,6 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
     const[arrayOfMistakes, setArrayOfMistakes] = useState([])
 
     const[answer, setAnswer] = useState("")
-
-    const[score, setScore] = useState(0)
 
     const[isWrong, setIsWrong] = useState(false)
 
@@ -28,7 +26,7 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
         if(key !== "enter"){
             setAnswer(e.target.value)
         
-            if(key !== "backspace"){
+            if(key !== "backspace" && question !== false){
                 const userInput = e.target.value
         
                 checkLetter(userInput)
@@ -41,9 +39,10 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
                 else{
                     incorrectAnswer(maxAttempts)
                 }
-            
+
                 if(questionCount+1 === questionArray.length && userInput === question.question){
-                    replaceQuestionArray()
+                    // replaceQuestionArray()
+                    navigate(`/score/${score}`)
                 }
             }
         }
@@ -80,6 +79,7 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
         setQuestionCount(questionCount+1)
         setAnswer("")
         setScore(score+1)
+        setArrayOfMistakes([])
     }
 
     function somethingIsWrong(userAnswer){
@@ -100,7 +100,6 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
             setQuestionArray(arrayOfMistakes)
             setQuestionCount(0)
             setArrayOfMistakes([])
-            console.log(arrayOfMistakes)
         }
     }
 
@@ -117,9 +116,13 @@ function TypeIt({ question, questionArray, setQuestionArray, setQuestionCount, q
     return(
         <div>
              <div>
-                <p>{question.question}</p>
-                <p>{question.description}</p>
-                <p>{score}</p>
+                {question ? (
+                    <p id="question" >{question.question}</p>
+                ):(
+                    null
+                )}
+                {/* <p>{question.description}</p> */}
+                <p id="score" >{score}</p>
                  {isWrong ?(
                     <p>Something Is Wrong!</p>
                  ):(

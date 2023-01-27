@@ -30,11 +30,8 @@ function Sets({set, setSelectedSet}){
     
     
     return(
-        <div onClick={handleClick}>
+        <div class="setcard" onClick={handleClick}>
             <h1>{set.title}</h1>
-            <p>test</p>
-            {/* <p>{set.length - 10}</p> */}
-            <img/>
         </div>
     )
 }
